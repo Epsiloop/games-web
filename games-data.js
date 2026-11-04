@@ -20,21 +20,24 @@
    ========================================================= */
 window.GAMES = [
   {
-    id: "game-one",
-    title: "Game One",
-    tagline: "Placeholder — replace with your first game.",
-    genres: ["Puzzle"],
+    id: "party-games",
+    title: "Party Games",
+    tagline: "Pass-the-device party games: Crocodile, Who Am I?, Mafia and Spy.",
+    genres: ["Party"],
     status: "soon",
+    cover: "covers/party-games.png",
     hue: 345,
-    privacy: { data: [], updated: "2026-11-04" }
-  },
-  {
-    id: "game-two",
-    title: "Game Two",
-    tagline: "Placeholder — replace with your second game.",
-    genres: ["Arcade"],
-    status: "soon",
-    hue: 15,
-    privacy: { data: [], updated: "2026-11-04" }
+    year: 2026,
+    privacy: {
+      data: [
+        "No account, sign-in or profile is needed.",
+        "Player names, settings and custom words stay on your device for the session only; nothing is saved or sent to us, and we run no servers or database.",
+        "Ads are shown through Google AdMob. Google may collect technical data such as your advertising ID, IP address, approximate location, app usage and ad interactions, under Google's own privacy policy.",
+        "You can reset your advertising ID or opt out of ad personalization in your device's ad settings.",
+        "The only permission requested is internet access, used to load ads. No contacts, camera, microphone, location or storage access.",
+        "Not directed at children under 13; we do not knowingly collect their personal information."
+      ],
+      updated: "2026-11-04"
+    }
   }
 ];
