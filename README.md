@@ -23,3 +23,8 @@ Put the cover image (16:10 works best) in `covers/`. Without one, a tinted cover
 ## Run locally
 
 Open `index.html` in a browser, or `python3 -m http.server` in this folder.
+
+## Privacy per game
+
+`privacy.html` lists every game from `games-data.js`. Give each game a `privacy` field
+(`data`: short lines on what it collects, `url`: its full policy, `updated`: date) — see the top of `games-data.js`.

@@ -83,3 +83,9 @@ footer{text-align:center;color:var(--ep-text-muted);padding:40px 20px;border-top
 .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:12px}
 .footer-links a{color:var(--ep-text-muted)}
 .footer-links a:hover{color:var(--ep-accent)}
+
+/* Per-game privacy cards (privacy.html) */
+.legal .body .game-privacy{border:1px solid var(--ep-border);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1rem}
+.legal .body .game-privacy h3{font-size:1.1rem;color:var(--ep-text);margin-bottom:.6rem;display:flex;align-items:center;gap:10px}
+.legal .body .game-privacy p:last-child,.legal .body .game-privacy ul:last-child{margin-bottom:0}
+.game-privacy__meta{font-size:.85rem}

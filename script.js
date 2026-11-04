@@ -98,7 +98,7 @@ function sync(){
   render();
 }
 
-// Catalog UI only exists on the home page; other pages (e.g. terms.html) share this script.
+// Catalog UI only exists on the home page; other pages (e.g. terms.html, privacy.html) share this script.
 if(el.grid){
 el.q.addEventListener('input',()=>{state.q=el.q.value;render()});
 el.status.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.status=b.dataset.status;sync()});
@@ -106,6 +106,20 @@ el.genres.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)
 el.reset.addEventListener('click',()=>{state.q='';state.status='all';state.genre='all';el.q.value='';sync()});
 
 renderGenres();render();
+}
+// Per-game privacy list (privacy.html)
+const pg=document.getElementById('game-privacy');
+if(pg&&window.GAMES){
+  const e=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  pg.innerHTML=GAMES.map(g=>{
+    const p=g.privacy||{},d=p.data||[];
+    const body=d.length
+      ?`<ul>${d.map(x=>`<li>${e(x)}</li>`).join('')}</ul>`
+      :`<p>${g.status==='soon'?'This game is not released yet and collects no data. Its privacy policy will be published here before launch.':'No privacy details have been published for this game yet. Contact us at <a href="mailto:info@epsiloop.io">info@epsiloop.io</a>.'}</p>`;
+    const link=p.url?`<p><a href="${e(p.url)}" target="_blank" rel="noopener">Read the full ${e(g.title)} privacy policy &rarr;</a></p>`:'';
+    const upd=p.updated?`<p class="game-privacy__meta">Last updated: ${e(p.updated)}</p>`:'';
+    return `<article class="game-privacy" id="${e(g.id)}"><h3>${e(g.title)} <span class="ep-badge">${e(g.status)}</span></h3>${body}${link}${upd}</article>`;
+  }).join('');
 }
 document.getElementById('y').textContent=new Date().getFullYear();
 

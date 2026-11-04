@@ -12,6 +12,11 @@
    cover     optional image path, e.g. "covers/my-game.png"
    hue       optional 0–360, tints the generated cover when there is no image
    year      optional release year
+   privacy   per-game privacy info shown on privacy.html:
+             { url:  "https://<game>.games.epsiloop.io/privacy",  // the game's full policy (optional)
+               data: ["What the game collects, one short line each"],  // plain-language summary
+               updated: "2026-11-04" }
+             Leave it out (or data empty) while the game is "soon" — the page says so.
    ========================================================= */
 window.GAMES = [
   {
@@ -20,7 +25,8 @@ window.GAMES = [
     tagline: "Placeholder — replace with your first game.",
     genres: ["Puzzle"],
     status: "soon",
-    hue: 345
+    hue: 345,
+    privacy: { data: [], updated: "2026-11-04" }
   },
   {
     id: "game-two",
@@ -28,6 +34,7 @@ window.GAMES = [
     tagline: "Placeholder — replace with your second game.",
     genres: ["Arcade"],
     status: "soon",
-    hue: 15
+    hue: 15,
+    privacy: { data: [], updated: "2026-11-04" }
   }
 ];
