@@ -1,0 +1,85 @@
+/* Epsiloop Games — page layout. Visuals come from the design system (css/tokens.css + css/components.css). */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.glow{position:fixed;left:0;top:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:-1;background:var(--ep-glow);filter:blur(30px);transform:translate(-50%,-50%)}
+
+.site-nav{position:fixed;top:12px;left:0;right:0;margin:0 auto;width:min(var(--ep-container),calc(100% - 24px));z-index:var(--ep-z-nav);padding:8px 14px 8px 22px;border:1px solid var(--ep-border);border-radius:var(--ep-radius-pill)}
+.site-nav .ep-nav__links{align-items:center;gap:24px}
+.apps{position:relative}
+.apps-btn{display:grid;grid-template-columns:repeat(3,5px);gap:4px;padding:10px;border-radius:50%;border:0;background:transparent;cursor:pointer;transition:background .2s}
+.apps-btn:hover,.apps-btn[aria-expanded=true]{background:rgba(255,255,255,.08)}
+.apps-btn i{width:5px;height:5px;border-radius:50%;background:var(--ep-text-muted)}
+.apps-menu{position:absolute;right:0;top:calc(100% + 14px);width:280px;padding:16px;border-radius:20px;border:1px solid var(--ep-border);background:rgba(20,8,12,.96);backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.6);display:none;grid-template-columns:repeat(2,1fr);gap:6px}
+.apps-menu.open{display:grid}
+.ep-nav__links .apps-menu a{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border-radius:14px;color:var(--ep-text);text-decoration:none;font-size:.9rem;transition:background .2s}
+.ep-nav__links .apps-menu a:hover{background:rgba(255,255,255,.07)}
+.apps-menu img{width:56px;height:56px;border-radius:50%;display:block}
+.ep-brand b{font-weight:500;color:var(--ep-accent)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 6vw 60px;max-width:var(--ep-container);margin:auto}
+.hero .ep-eyebrow{margin-bottom:20px}
+.lead{max-width:560px;margin:28px 0 36px;font-size:1.2rem}
+
+.section{max-width:var(--ep-container);margin:auto;padding:90px 6vw}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.section-head .ep-h2{display:flex;align-items:center;gap:12px}
+.search{width:min(320px,100%)}
+
+.filters{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;margin-bottom:32px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.game{padding:0;display:flex;flex-direction:column}
+.game__cover{position:relative;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 20% 0%,hsl(var(--h) 80% 55% / .55),transparent 60%),
+    linear-gradient(135deg,hsl(var(--h) 70% 22%),hsl(var(--h) 60% 10%))}
+.game__cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.game__letter{font:700 4.5rem/1 var(--ep-font-display);color:#fff;opacity:.9;text-shadow:0 8px 30px rgba(0,0,0,.4)}
+.game__status{position:absolute;top:12px;left:12px}
+.game__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.game__body .ep-card__title{margin:0}
+.game__body p{margin:0;color:var(--ep-text-muted);font-size:var(--ep-text-sm)}
+.game__meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px}
+.game__cta{display:inline-block;margin-top:12px;color:var(--ep-accent);font-size:var(--ep-text-sm)}
+.game--soon{cursor:default}
+.game--soon .game__cta{color:var(--ep-text-faint)}
+.game--soon:hover{transform:none;border-color:var(--ep-border)}
+.game--soon:hover::before{opacity:0}
+
+.about{font-size:1.35rem;max-width:760px;color:var(--ep-text-muted);margin:16px 0 0}
+.about .ep-emph{color:var(--ep-text)}
+
+footer{text-align:center;color:var(--ep-text-muted);padding:40px 20px;border-top:1px solid var(--ep-border);font-size:.9rem}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:600px){
+  .site-nav{top:8px;width:calc(100% - 16px);padding:6px 10px 6px 16px}
+  .ep-nav__links{gap:4px}
+  .ep-nav__links>a:not(.ep-btn){display:none}
+  .ep-brand{font-size:1rem;gap:8px;white-space:nowrap}.ep-nav__links .ep-btn{padding:0 12px}.ep-brand img{width:28px;height:28px}
+  .apps{position:static}
+  .apps-menu{left:0;right:0;width:auto;top:calc(100% + 8px)}
+  .section{padding:70px 5vw}
+  .search{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Legal pages (terms.html) */
+.legal{max-width:860px;margin:auto;padding:130px 6vw 90px}
+.legal h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:10px}
+.legal .meta{color:var(--ep-text-muted);font-size:.9rem;margin-bottom:40px}
+.legal .body{color:var(--ep-text-muted);font-size:1rem;line-height:1.75}
+.legal .body p{margin-bottom:1rem}
+.legal .body h2{font-size:1.35rem;color:var(--ep-text);margin:2.4rem 0 .8rem;padding-top:1.6rem;border-top:1px solid var(--ep-border)}
+.legal .body ul{padding-left:1.5rem;margin-bottom:1rem}
+.legal .body li{margin-bottom:.35rem}
+.legal .body a{color:var(--ep-accent)}
+.legal .body strong{color:var(--ep-text)}
+.legal .body address{font-style:normal;border:1px solid var(--ep-border);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1rem;line-height:1.9}
+.footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:12px}
+.footer-links a{color:var(--ep-text-muted)}
+.footer-links a:hover{color:var(--ep-accent)}
