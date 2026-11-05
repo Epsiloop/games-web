@@ -1,6 +1,6 @@
 # Epsiloop Games (catalog)
 
-Static site, same stack as `main/`, `biovault/` and `motiveaction/`. Styled with the design system
+Static site, same stack as `main/`, `epsivault/` and `motiveaction/`. Styled with the design system
 (`css/tokens.css` + `css/components.css` are copies of `../design-system/`; re-copy them when the system changes).
 
 ## Structure
