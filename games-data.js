@@ -26,6 +26,7 @@ window.GAMES = [
     genres: ["Party"],
     status: "soon",
     cover: "covers/party-games.png",
+    confetti: true,
     hue: 345,
     year: 2026,
     privacy: {

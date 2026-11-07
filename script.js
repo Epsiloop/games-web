@@ -49,7 +49,11 @@ function card(g){
   const tag=playable?'a':'div';
   const href=playable?` href="${esc(g.url)}"`:'';
   const hue=Number.isFinite(g.hue)?g.hue:345;
-  const cover=g.cover?`<img src="${esc(g.cover)}" alt="" loading="lazy">`:`<span class="game__letter" aria-hidden="true">${esc(g.title.trim().charAt(0).toUpperCase())}</span>`;
+  const colors=['#ff3d9a','#2fa8ff','#ffc83d','#ff7a59','#7be0a0'];
+  const confetti=g.confetti?`<span class="game__confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>{
+    const a=(-100+i*(120/17)+(i%2?6:-6))*Math.PI/180, d=110+(i*37%90);
+    return `<i style="--dx:${Math.round(Math.cos(a)*d*1.3)}px;--dy:${Math.round(Math.sin(a)*d)}px;--r:${(i*83%720)-360}deg;--c:${colors[i%5]};--t:${(i%6)*30}ms;--w:${i%3?6:10}px"></i>`}).join('')}</span>`:'';
+  const cover=g.cover?`<img src="${esc(g.cover)}" alt="" loading="lazy">${confetti}`:`<span class="game__letter" aria-hidden="true">${esc(g.title.trim().charAt(0).toUpperCase())}</span>`;
   const meta=[...(g.genres||[]).map(t=>`<span class="ep-badge">${esc(t)}</span>`),g.year?`<span class="ep-badge">${esc(g.year)}</span>`:''].join('');
   return `<${tag} class="ep-card ep-card--interactive game game--${esc(g.status)} reveal"${href} style="--h:${hue}">
     <div class="game__cover">${cover}<span class="game__status ep-badge ep-badge--dot ep-badge--${tone}">${label}</span></div>
