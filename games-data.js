@@ -22,7 +22,7 @@ window.GAMES = [
   {
     id: "party-games",
     title: "Party Games",
-    tagline: "Pass-the-device party games: Crocodile, Who Am I?, Mafia and Spy.",
+    tagline: "One phone, six party games: Crocodile, Who Am I?, Mafia, Spy, Taboo and Two Truths and a Lie.",
     genres: ["Party"],
     status: "soon",
     cover: "covers/party-games.png",
@@ -33,11 +33,12 @@ window.GAMES = [
         "No account, sign-in or profile is needed.",
         "Player names, settings and custom words stay on your device for the session only; nothing is saved or sent to us, and we run no servers or database.",
         "Ads are shown through Google AdMob. Google may collect technical data such as your advertising ID, IP address, approximate location, app usage and ad interactions, under Google's own privacy policy.",
+        "Where required (for example the EU and UK) a Google consent form asks for your choice before ads load; on iOS, Apple's App Tracking Transparency prompt asks before your advertising ID is used. If you decline, ads are not personalized.",
         "You can reset your advertising ID or opt out of ad personalization in your device's ad settings.",
-        "The only permission requested is internet access, used to load ads. No contacts, camera, microphone, location or storage access.",
+        "The only permissions requested are internet access (to load ads) and, on iOS, the tracking permission above. No contacts, camera, microphone, location or storage access.",
         "Not directed at children under 13; we do not knowingly collect their personal information."
       ],
-      updated: "2026-11-04"
+      updated: "2026-11-06"
     }
   }
 ];
