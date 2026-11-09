@@ -36,7 +36,7 @@ observe(document);
 
 // ---------- Catalog ----------
 const GAMES=window.GAMES||[];
-const STATUS={live:['Live','success'],beta:['Beta','warning'],soon:['Coming soon','info']};
+const STATUS={live:['Live','success'],beta:['Beta','warning'],processing:['In review','brand'],soon:['Coming soon','info']};
 const el={grid:document.getElementById('games'),q:document.getElementById('q'),genres:document.getElementById('genres'),
   status:document.getElementById('status'),empty:document.getElementById('empty'),count:document.getElementById('count'),reset:document.getElementById('reset')};
 const state={q:'',status:'all',genre:'all'};
@@ -45,9 +45,11 @@ const esc=s=>String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;
 
 function card(g){
   const [label,tone]=STATUS[g.status]||STATUS.soon;
-  const playable=g.status!=='soon'&&g.url;
+  const processing=g.status==='processing';
+  const link=g.url||(processing?`privacy.html#${g.id}`:'');
+  const playable=g.status!=='soon'&&link;
   const tag=playable?'a':'div';
-  const href=playable?` href="${esc(g.url)}"`:'';
+  const href=playable?` href="${esc(link)}"`:'';
   const hue=Number.isFinite(g.hue)?g.hue:345;
   const colors=['#ff3d9a','#2fa8ff','#ffc83d','#ff7a59','#7be0a0'];
   const confetti=g.confetti?`<span class="game__confetti" aria-hidden="true">${Array.from({length:18},(_,i)=>{
@@ -61,7 +63,7 @@ function card(g){
       <h3 class="ep-card__title">${esc(g.title)}</h3>
       <p>${esc(g.tagline||'')}</p>
       <div class="game__meta">${meta}</div>
-      <span class="game__cta">${playable?'Play →':'In development'}</span>
+      <span class="game__cta">${playable?(processing?'Details →':'Play →'):'In development'}</span>
     </div>
   </${tag}>`;
 }
